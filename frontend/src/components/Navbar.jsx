@@ -39,7 +39,7 @@ export default function Navbar({
           <div>
             <div className="flex items-center space-x-2">
               <span className="font-bold tracking-wider text-lg text-white font-mono group-hover:text-tactical-cyan transition-colors">
-                VisionTrace
+                AEGIS-CV
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-tactical-cyan/10 border border-tactical-cyan/40 text-tactical-cyan">
                 DEFENSE SECURE

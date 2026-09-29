@@ -17,7 +17,7 @@ class BlockchainLedger:
             timestamp_str = genesis_time.isoformat()
             event_type = "GENESIS"
             payload = json.dumps({
-                "message": "VisionTrace Integrity Assurance Blockchain Initialized",
+                "message": "AEGIS-CV Integrity Assurance Blockchain Initialized",
                 "authority": "DEFENSE-CYBER-COMMAND",
                 "standard": "SHA-256 Chain of Custody",
                 "timestamp": timestamp_str

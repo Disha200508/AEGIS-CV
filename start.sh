@@ -2,7 +2,7 @@
 set -e
 
 echo "=========================================================="
-echo "  VisionTrace // DEFENSE MULTI-CONTRIBUTOR INTEGRITY PLATFORM"
+echo "  AEGIS-CV // DEFENSE MULTI-CONTRIBUTOR INTEGRITY PLATFORM"
 echo "  Enterprise Computer Vision Cryptographic Assurance"
 echo "=========================================================="
 
@@ -18,7 +18,7 @@ fi
 # Function to clean up background processes on exit
 cleanup() {
     echo ""
-    echo "[*] Shutting down VisionTrace services..."
+    echo "[*] Shutting down AEGIS-CV services..."
     kill $(jobs -p) 2>/dev/null || true
     exit 0
 }

@@ -137,7 +137,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
       <div className="text-center space-y-3">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-tactical-800 border border-tactical-cyan/40 text-tactical-cyan font-mono text-xs">
           <Terminal className="w-3.5 h-3.5" />
-          <span>VisionTrace // DEFENSE ACCESS GATEWAY</span>
+          <span>AEGIS-CV // DEFENSE ACCESS GATEWAY</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold font-mono text-white tracking-tight">
           COMMAND CENTER AUTHENTICATION

@@ -1,4 +1,4 @@
-# VisionTrace // Defense-Grade Computer Vision Integrity Assurance Platform
+# AEGIS-CV // Defense-Grade Computer Vision Integrity Assurance Platform
 ### Enterprise & Tactical Multi-Contributor Integrity Verification System
 > **“Trustworthy Computer Vision Integrity Assurance for Data, Models and Inference Outputs in Multi-Contributor Pipelines.”**
 
@@ -17,7 +17,7 @@ In modern computer vision deployments—particularly in defense reconnaissance, 
 3. **Inference Output Layer**: Post-inference telemetry falsification (altering detected object counts, classifications, or bounding box coordinates), deepfake output forgery, and lack of non-repudiation.
 4. **Audit Trail**: Vulnerability to audit log tampering or log deletion.
 
-**VisionTrace** solves this by establishing a **mathematically verifiable cryptographic chain of custody** across Data, Models, and Inferences using genuine **SHA-256 seals** and an **immutable append-only blockchain-style ledger**.
+**AEGIS-CV** solves this by establishing a **mathematically verifiable cryptographic chain of custody** across Data, Models, and Inferences using genuine **SHA-256 seals** and an **immutable append-only blockchain-style ledger**.
 
 ---
 

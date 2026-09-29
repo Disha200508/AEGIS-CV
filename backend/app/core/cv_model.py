@@ -155,7 +155,7 @@ class CVInferenceEngine:
         h, w, _ = img.shape
         cv2.rectangle(img, (0, 0), (w, 32), (18, 22, 14), -1)
         cv2.line(img, (0, 32), (w, 32), cyan, 1)
-        cv2.putText(img, "VisionTrace // TACTICAL OPTICAL RECON // CRYPTOGRAPHICALLY SECURED", (16, 22), font, 0.5, cyan, 1, cv2.LINE_AA)
+        cv2.putText(img, "AEGIS-CV // TACTICAL OPTICAL RECON // CRYPTOGRAPHICALLY SECURED", (16, 22), font, 0.5, cyan, 1, cv2.LINE_AA)
         cv2.putText(img, f"TARGETS: {len(detections)}", (w - 140, 22), font, 0.5, green, 1, cv2.LINE_AA)
 
         for det in detections:
