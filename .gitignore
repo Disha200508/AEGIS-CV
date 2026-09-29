@@ -1,0 +1,9 @@
+venv/
+node_modules/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+.DS_Store
+storage/demo_tamper/*
+!storage/demo_tamper/.gitkeep
