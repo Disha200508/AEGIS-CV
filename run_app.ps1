@@ -1,10 +1,10 @@
-# AEGIS-CV Startup Script for Windows PowerShell
+# VisionTrace Startup Script for Windows PowerShell
 $root = $PSScriptRoot
 Set-Location $root
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "  AEGIS-CV // DEFENSE INTEGRITY ASSURANCE PLATFORM" -ForegroundColor Cyan
-Write-Host "  Smart India Hackathon 2026 - Problem Statement 228" -ForegroundColor Cyan
+Write-Host "  VisionTrace // DEFENSE INTEGRITY ASSURANCE PLATFORM" -ForegroundColor Cyan
+Write-Host "  Enterprise Computer Vision Cryptographic Assurance" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 # Check and seed DB if needed
@@ -23,7 +23,7 @@ Write-Host "[*] Launching Frontend on http://127.0.0.1:5173 ..." -ForegroundColo
 Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "cd '$root/frontend'; npm run dev"
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "  AEGIS-CV SERVICES LAUNCHED SUCCESSFULLY" -ForegroundColor Green
+Write-Host "  VisionTrace SERVICES LAUNCHED SUCCESSFULLY" -ForegroundColor Green
 Write-Host "  Dashboard UI:   http://localhost:5173" -ForegroundColor Yellow
 Write-Host "  FastAPI Docs:   http://127.0.0.1:8000/docs" -ForegroundColor Yellow
 Write-Host "==========================================================" -ForegroundColor Cyan

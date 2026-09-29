@@ -151,7 +151,7 @@ export default function HomePage({
             </span>
             <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-tactical-800 border border-tactical-600">
               <Radio className="w-3.5 h-3.5 text-tactical-green animate-pulse" />
-              <span>SIH 2026 // PS228</span>
+              <span>ZERO-TRUST PIPELINE // MIL-SPEC</span>
             </span>
             {user && (
               <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[11px] font-mono bg-tactical-green/10 border border-tactical-green/50 text-tactical-green">
@@ -164,7 +164,7 @@ export default function HomePage({
           {/* Main Title */}
           <div className="space-y-2">
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-mono leading-tight">
-              AEGIS-CV <span className="text-tactical-cyan">//</span> TRUSTED CV PIPELINE ASSURANCE
+              VisionTrace <span className="text-tactical-cyan">//</span> TRUSTED CV PIPELINE ASSURANCE
             </h1>
             <p className="text-base sm:text-lg text-slate-300 font-sans max-w-3xl leading-relaxed">
               End-to-end cryptographic chain of custody for defense reconnaissance computer vision. 
@@ -308,7 +308,7 @@ export default function HomePage({
             SECURITY MATRIX
           </div>
           <h2 className="text-2xl font-bold font-mono text-white">
-            Adversary Threat Vectors Addressed (PS228)
+            Adversary Threat Vectors Addressed
           </h2>
         </div>
 
@@ -318,7 +318,7 @@ export default function HomePage({
               <tr>
                 <th className="p-3.5">Threat Vector</th>
                 <th className="p-3.5">Vulnerability Description</th>
-                <th className="p-3.5">AEGIS-CV Cryptographic Mitigation</th>
+                <th className="p-3.5">VisionTrace Cryptographic Mitigation</th>
                 <th className="p-3.5 text-right">Defense Status</th>
               </tr>
             </thead>
@@ -347,7 +347,7 @@ export default function HomePage({
             END-TO-END CRYPTOGRAPHIC PIPELINE
           </span>
           <h3 className="text-xl sm:text-2xl font-bold font-mono text-white">
-            How AEGIS-CV Enforces Mathematical Custody
+            How VisionTrace Enforces Mathematical Custody
           </h3>
           <p className="text-xs font-mono text-slate-400">
             From multi-contributor field ingestion to verified defense mission command

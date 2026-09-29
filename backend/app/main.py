@@ -15,8 +15,8 @@ from backend.app.api.stats_routes import router as stats_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="AEGIS-CV // Defense Integrity Assurance Platform",
-    description="Trustworthy Computer Vision Integrity Assurance for Data, Models and Inference Outputs in Multi-Contributor Pipelines (SIH 2026 PS228)",
+    title="VisionTrace // Defense Integrity Assurance Platform",
+    description="Trustworthy Computer Vision Integrity Assurance for Data, Models and Inference Outputs in Multi-Contributor Pipelines",
     version="1.0.0"
 )
 
@@ -44,7 +44,7 @@ app.include_router(stats_router, prefix="/api")
 def health_check():
     return {
         "status": "ONLINE",
-        "system": "AEGIS-CV Integrity Assurance Engine",
+        "system": "VisionTrace Integrity Assurance Engine",
         "standard": "SHA-256 Multi-Contributor Supply Chain Verification",
         "blockchain_ledger": "ACTIVE"
     }

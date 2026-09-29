@@ -30,7 +30,7 @@ export default function App() {
   // User authentication state (stored in localStorage)
   const [user, setUser] = useState(() => {
     try {
-      const saved = localStorage.getItem('aegis_cv_user');
+      const saved = localStorage.getItem('visiontrace_user');
       return saved ? JSON.parse(saved) : null;
     } catch {
       return null;
@@ -100,7 +100,7 @@ export default function App() {
   const handleLogin = (userProfile) => {
     setUser(userProfile);
     try {
-      localStorage.setItem('aegis_cv_user', JSON.stringify(userProfile));
+      localStorage.setItem('visiontrace_user', JSON.stringify(userProfile));
     } catch (e) {
       console.error(e);
     }
@@ -113,7 +113,7 @@ export default function App() {
   const handleLogout = () => {
     setUser(null);
     try {
-      localStorage.removeItem('aegis_cv_user');
+      localStorage.removeItem('visiontrace_user');
     } catch (e) {
       console.error(e);
     }
@@ -279,7 +279,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-tactical-700/40 py-4 text-center font-mono text-[11px] text-slate-500 bg-tactical-900">
-        AEGIS-CV // Smart India Hackathon 2026 // Problem Statement 228 // Multi-Contributor CV Integrity Assurance
+        VisionTrace // Autonomous Multi-Contributor Computer Vision Integrity Assurance Platform
       </footer>
 
     </div>

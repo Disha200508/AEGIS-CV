@@ -2,8 +2,8 @@
 set -e
 
 echo "=========================================================="
-echo "  AEGIS-CV // DEFENSE MULTI-CONTRIBUTOR INTEGRITY PLATFORM"
-echo "  Smart India Hackathon 2026 - Problem Statement 228"
+echo "  VisionTrace // DEFENSE MULTI-CONTRIBUTOR INTEGRITY PLATFORM"
+echo "  Enterprise Computer Vision Cryptographic Assurance"
 echo "=========================================================="
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,7 +18,7 @@ fi
 # Function to clean up background processes on exit
 cleanup() {
     echo ""
-    echo "[*] Shutting down AEGIS-CV services..."
+    echo "[*] Shutting down VisionTrace services..."
     kill $(jobs -p) 2>/dev/null || true
     exit 0
 }
