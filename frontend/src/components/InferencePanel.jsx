@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, ShieldCheck, ShieldAlert, Play, CheckCircle2, AlertOctagon, Hash, Target, RefreshCw } from 'lucide-react';
 import { runInference, verifyInferenceRecord } from '../services/api';
+import { getStorageUrl } from '../utils/imageUrl';
 
 export default function InferencePanel({ assets, model, inferenceRecords, onRefresh }) {
   const [selectedAssetId, setSelectedAssetId] = useState(assets[0]?.id || null);
@@ -128,7 +129,7 @@ export default function InferencePanel({ assets, model, inferenceRecords, onRefr
               </span>
               <div className="rounded-lg overflow-hidden border border-tactical-700 bg-black aspect-video flex items-center justify-center">
                 <img
-                  src={selectedAsset?.url}
+                  src={getStorageUrl(selectedAsset?.url)}
                   alt="Original Recon"
                   className="w-full h-full object-cover"
                 />
@@ -142,7 +143,7 @@ export default function InferencePanel({ assets, model, inferenceRecords, onRefr
               </span>
               <div className="rounded-lg overflow-hidden border border-tactical-cyan/60 bg-black aspect-video flex items-center justify-center shadow-[0_0_20px_rgba(0,240,255,0.15)]">
                 <img
-                  src={currentResult.output_image_url}
+                  src={getStorageUrl(currentResult.output_image_url)}
                   alt="Annotated Recon"
                   className="w-full h-full object-cover"
                 />

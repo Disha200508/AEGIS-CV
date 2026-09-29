@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Upload, CheckCircle2, AlertTriangle, RefreshCw, FileText, Hash, ShieldCheck, ShieldAlert, Copy } from 'lucide-react';
 import { uploadImage, verifyAsset } from '../services/api';
 
+import { getStorageUrl } from '../utils/imageUrl';
+
 export default function DataIntegrityPanel({ assets, onRefresh }) {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadMessage, setUploadMessage] = useState(null);
@@ -133,7 +135,7 @@ export default function DataIntegrityPanel({ assets, onRefresh }) {
                     <td className="px-5 py-3">
                       <div className="w-14 h-10 rounded border border-tactical-600/60 overflow-hidden bg-black flex items-center justify-center">
                         <img
-                          src={asset.url}
+                          src={getStorageUrl(asset.url)}
                           alt={asset.filename}
                           className="w-full h-full object-cover"
                           onError={(e) => {
