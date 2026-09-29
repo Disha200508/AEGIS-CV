@@ -18,13 +18,13 @@ import {
 
 const PRESET_OPERATORS = [
   {
-    callsign: 'COMMANDER_DELTA',
-    name: 'Brig. Gen. R. Verma',
-    role: 'Strategic Defense Commander',
+    callsign: 'CODE4CAUSE',
+    name: 'Code4Cause Lead Commander',
+    role: 'Chief Defense Architect & Commander',
     clearance: 'LEVEL 5 - TOP SECRET',
     unit: 'Strategic Intelligence Command (HQ)',
     color: 'tactical-cyan',
-    badge: 'DEFENSE COMMAND'
+    badge: 'PRIMARY COMMAND'
   },
   {
     callsign: 'LEAD_AUDITOR',
@@ -56,8 +56,8 @@ const PRESET_OPERATORS = [
 ];
 
 export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, authNotice }) {
-  const [callsign, setCallsign] = useState('');
-  const [password, setPassword] = useState('');
+  const [callsign, setCallsign] = useState('code4cause');
+  const [password, setPassword] = useState('code4cause');
   const [clearance, setClearance] = useState('LEVEL 5 - TOP SECRET');
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [authSuccess, setAuthSuccess] = useState(false);
@@ -65,8 +65,22 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
 
   const handleCustomLogin = (e) => {
     e.preventDefault();
-    if (!callsign.trim()) {
-      setErrorMsg('Please enter an Officer Callsign or ID.');
+    const trimmedId = callsign.trim().toLowerCase();
+    const trimmedPass = password.trim();
+
+    if (!trimmedId) {
+      setErrorMsg('Please enter an Officer Login ID.');
+      return;
+    }
+
+    // Strict validation for code4cause account or authorized login
+    if (trimmedId === 'code4cause' && trimmedPass !== 'code4cause') {
+      setErrorMsg('Invalid password for code4cause. (Password: code4cause)');
+      return;
+    }
+
+    if (!trimmedPass) {
+      setErrorMsg('Please enter your cryptographic password.');
       return;
     }
 
@@ -79,11 +93,11 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
       setAuthSuccess(true);
 
       const userProfile = {
-        callsign: callsign.trim().toUpperCase(),
-        name: callsign.trim().toUpperCase(),
+        callsign: trimmedId.toUpperCase(),
+        name: trimmedId === 'code4cause' ? 'Code4Cause Lead Commander' : callsign.trim().toUpperCase(),
         role: clearance.includes('LEVEL 5') ? 'Commander / Lead Officer' : 'Defense Analyst',
         clearance: clearance,
-        unit: 'Tactical Command Network',
+        unit: 'Strategic Intelligence Command (HQ)',
         authTime: new Date().toISOString()
       };
 
@@ -133,6 +147,27 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
         </p>
       </div>
 
+      {/* Credentials Quick Info Callout */}
+      <div className="p-4 rounded-xl bg-tactical-cyan/10 border border-tactical-cyan/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-200">
+        <div className="flex items-center space-x-3">
+          <Key className="w-5 h-5 text-tactical-cyan flex-shrink-0" />
+          <div>
+            <span className="text-tactical-cyan font-bold block">ACTIVE ACCESS CREDENTIALS:</span>
+            <span>Login ID: <strong className="text-white bg-tactical-800 px-2 py-0.5 rounded border border-tactical-600">code4cause</strong> &nbsp;|&nbsp; Password: <strong className="text-white bg-tactical-800 px-2 py-0.5 rounded border border-tactical-600">code4cause</strong></span>
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            setCallsign('code4cause');
+            setPassword('code4cause');
+            setClearance('LEVEL 5 - TOP SECRET');
+          }}
+          className="px-3 py-1.5 rounded bg-tactical-cyan text-slate-950 font-bold text-xs hover:bg-tactical-cyan/90 transition-all flex-shrink-0"
+        >
+          AUTO-FILL CREDENTIALS
+        </button>
+      </div>
+
       {/* Current User Card if Already Authenticated */}
       {currentUser && (
         <div className="p-6 rounded-xl border border-tactical-green/50 bg-tactical-green/5 backdrop-blur-md space-y-4">
@@ -149,7 +184,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
                   </span>
                 </div>
                 <p className="text-xs font-mono text-slate-300">
-                  Callsign: <strong className="text-tactical-cyan">{currentUser.callsign}</strong> | Unit: {currentUser.unit || 'Tactical Recon Unit'}
+                  Callsign: <strong className="text-tactical-cyan">{currentUser.callsign}</strong> | Unit: {currentUser.unit || 'Strategic Intelligence Command (HQ)'}
                 </p>
               </div>
             </div>
@@ -175,13 +210,13 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
         </div>
       )}
 
-      {/* 1-Click Fast Presets (Designed for Live Evaluation / Demos) */}
+      {/* 1-Click Fast Presets */}
       <div className="space-y-4">
         <div className="flex items-center justify-between border-b border-tactical-700/60 pb-2">
           <div className="flex items-center space-x-2">
             <Sparkles className="w-4 h-4 text-tactical-amber" />
             <h2 className="text-sm font-bold font-mono text-white uppercase tracking-wider">
-              1-Click Fast Login Profiles (Demo & Jury Evaluator)
+              1-Click Fast Login Profiles
             </h2>
           </div>
           <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">
@@ -206,7 +241,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
                       {preset.name}
                     </h3>
                     <div className="text-[11px] font-mono text-slate-400">
-                      {preset.callsign}
+                      ID: {preset.callsign.toLowerCase()}
                     </div>
                   </div>
                 </div>
@@ -246,7 +281,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
             
             <div className="space-y-1.5">
               <label className="block text-xs font-mono text-slate-300">
-                OFFICER CALLSIGN / ACCESS ID
+                LOGIN ID / ACCESS ID
               </label>
               <div className="relative">
                 <User className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
@@ -254,7 +289,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
                   type="text"
                   value={callsign}
                   onChange={(e) => setCallsign(e.target.value)}
-                  placeholder="e.g. DEFENSE_OPERATOR_01"
+                  placeholder="code4cause"
                   className="w-full bg-tactical-800 border border-tactical-600 rounded-lg pl-9 pr-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-tactical-cyan transition-colors"
                 />
               </div>
@@ -272,7 +307,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
                 <option value="LEVEL 5 - TOP SECRET">LEVEL 5 - TOP SECRET (Full Command Access)</option>
                 <option value="LEVEL 4 - SECRET">LEVEL 4 - SECRET (AI & Model Analytics)</option>
                 <option value="LEVEL 3 - CONFIDENTIAL">LEVEL 3 - CONFIDENTIAL (Recon Ingestion)</option>
-                <option value="LEVEL 5 - FULL AUDIT">LEVEL 5 - AUDIT / JURY EVALUATOR</option>
+                <option value="LEVEL 5 - FULL AUDIT">LEVEL 5 - AUDIT / REVIEW BOARD</option>
               </select>
             </div>
 
@@ -280,7 +315,7 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
 
           <div className="space-y-1.5">
             <label className="block text-xs font-mono text-slate-300">
-              CRYPTOGRAPHIC PASSPHRASE / 2FA TOKEN
+              CRYPTOGRAPHIC PASSWORD
             </label>
             <div className="relative">
               <Key className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
@@ -288,12 +323,12 @@ export default function LoginPage({ onLogin, onLogout, currentUser, onNavigate, 
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password or leave blank for instant evaluation mode"
+                placeholder="code4cause"
                 className="w-full bg-tactical-800 border border-tactical-600 rounded-lg pl-9 pr-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-tactical-cyan transition-colors"
               />
             </div>
             <p className="text-[10px] font-mono text-slate-500">
-              * Demonstration mode allows instant evaluation authentication.
+              * Default administrator credentials: ID <span className="text-tactical-cyan">code4cause</span> / Password <span className="text-tactical-cyan">code4cause</span>
             </p>
           </div>
 
